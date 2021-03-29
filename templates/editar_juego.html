@@ -1,29 +1,23 @@
 {% extends "maestra.html" %}
 {% block titulo %}
-Editar artículo
+Editar juego
 {% endblock %}
 {% block contenido %}
 <section class="section">
     <div class="columns">
         <div class="column">
-            <h3 class="is-size-3">Editar artículo</h3>
-            <form action="{{url_for('actualizar_computadora')}}" method="post">
-                <input type="hidden" value="{{computadora[0]}}" name="id">
-                <label for="numero_serie">Número de serie:</label>
-                <input value="{{computadora[2]}}" type="text" class="input" placeholder="Número de serie"
-                    name="numero_serie" id="numero_serie">
-                <label for="modelo">Modelo</label>
-                <input value="{{computadora[3]}}" type="text" class="input" placeholder="Modelo" name="modelo"
-                    id="modelo">
-                <label for="ram">RAM en GB</label>
-                <input value="{{computadora[4]}}" type="number" class="input" placeholder="RAM" name="ram" id="ram">
-                <label for="marca">Marca</label>
-                <input value="{{computadora[5]}}" type="text" class="input" placeholder="Marca" name="marca" id="marca">
-                <label for="procesador">Procesador</label>
-                <input value="{{computadora[6]}}" type="text" class="input" placeholder="Procesador" name="procesador"
-                    id="procesador">
+            <h3 class="is-size-3">Editar juego</h3>
+            <form action="{{url_for('actualizar_juego')}}" method="post">
+                {# Enviar el id en un campo oculto #}
+                <input type="hidden" name="id" value="{{juego[0]}}">
+                <label for="nombre">Nombre:</label>
+                <input value="{{juego[1]}}" required type="text" class="input" placeholder="Nombre" name="nombre" id="nombre">
+                <label for="descripcion">Descripción</label>
+                <input value="{{juego[2]}}" required type="text" class="input" placeholder="Descripción" name="descripcion" id="descripcion">
+                <label for="precio">Precio</label>
+                <input value="{{juego[3]}}" required type="number" class="input" placeholder="Precio" name="precio" id="precio">
                 <button type="submit" class="button is-success mt-2">Guardar</button>
-                <a href="{{url_for('articulos')}}" class="button is-primary mt-2">Volver</a>
+                <a href="{{url_for('juegos')}}" class="button is-primary mt-2">Volver</a>
             </form>
         </div>
     </div>
