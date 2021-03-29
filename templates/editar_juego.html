@@ -1,0 +1,31 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Editar artículo
+{% endblock %}
+{% block contenido %}
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">Editar artículo</h3>
+            <form action="{{url_for('actualizar_computadora')}}" method="post">
+                <input type="hidden" value="{{computadora[0]}}" name="id">
+                <label for="numero_serie">Número de serie:</label>
+                <input value="{{computadora[2]}}" type="text" class="input" placeholder="Número de serie"
+                    name="numero_serie" id="numero_serie">
+                <label for="modelo">Modelo</label>
+                <input value="{{computadora[3]}}" type="text" class="input" placeholder="Modelo" name="modelo"
+                    id="modelo">
+                <label for="ram">RAM en GB</label>
+                <input value="{{computadora[4]}}" type="number" class="input" placeholder="RAM" name="ram" id="ram">
+                <label for="marca">Marca</label>
+                <input value="{{computadora[5]}}" type="text" class="input" placeholder="Marca" name="marca" id="marca">
+                <label for="procesador">Procesador</label>
+                <input value="{{computadora[6]}}" type="text" class="input" placeholder="Procesador" name="procesador"
+                    id="procesador">
+                <button type="submit" class="button is-success mt-2">Guardar</button>
+                <a href="{{url_for('articulos')}}" class="button is-primary mt-2">Volver</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
